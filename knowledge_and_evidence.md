@@ -53,8 +53,9 @@ Address the following tasks and questions based on the code provided in this rep
 3. Run the project locally by executing the `main.py` file
 4. Evidence this by providing screenshots of the project directory structure and the output of the `main.py` file
 
-
 ![img.png](screenshots%2Fimg.png)
+
+![img_1.png](screenshots%2Fimg_1.png)
 
 If you are running on a Raspberry Pi, you can use the following command to run the project and then screenshot the result:
 
@@ -69,27 +70,31 @@ python3 main.py
 
 1. Examine the code for the `smiley.py` file and provide  an example of a variable of each of the following types and their corresponding values (`_` should be replaced with the appropriate values):
 
-   | Type                    | name           | value            |
-   |-------------------------|----------------|------------------|
-   | built-in primitive type | tuple          | 255              |
-   | built-in composite type | list of tuple  | (255, 255, 255)  |
-   | user-defined type       | WHITE          | (255, 255, 255)  |
+   | Type                    | name            | value           |
+   |-------------------------|-----------------|-----------------|
+   | built-in primitive type | tuple           | 255             |
+   | built-in composite type | list of tuple   | (255, 255, 255) |
+   | user-defined type       | self.sense_hat  | SenseHat()      |
+
+https://www.geeksforgeeks.org/primitive-data-types-vs-non-primitive-data-types-in-python/
+https://www.geeksforgeeks.org/composite-method-python-design-patterns/
+https://learnlearn.uk/alevelcs/user-defined-types/
 
 2. Fill in (`_`) the following table based on the code in `smiley.py`:
 
-   | Object                  | Type                      |
-   |-------------------------|---------------------------|
-   | self.pixels             | Instance attribute pixels |
-   | A member of self.pixels | tuple                     |
-   | self                    | parameter                 |
+   | Object                  | Type  |
+   |-------------------------|-------|
+   | self.pixels             | list  |
+   | A member of self.pixels | tuple |
+   | self                    | class |
 
 3. Examine the code for `smiley.py`, `sad.py`, and `happy.py`. Give an example of each of the following control structures using an example from **each** of these files. Include the first line and the line range:
 
-   | Control Flow | File | First line | Line range |
-   |--------------|------|------------|------------|
-   | sequence     | _    | _          | _          |
-   | selection    | _    | _          | _          |
-   | iteration    | _    | _          | _          |
+   | Control Flow | File   | First line               | Line range |
+   |--------------|--------|--------------------------|------------|
+   | sequence     | Smiley | WHITE = (255, 255, 255)  | 5 to 26    |
+   | selection    | _      | _                        | _          |
+   | iteration    | _      | _                        | _          |
 
 4. Though everything in Python is an object, it is sometimes said to have four "primitive" types. Examining the three files `smiley.py`, `sad.py`, and `happy.py`, identify which of the following types are used in any of these files, and give an example of each (use an example from the code, if applicable, otherwise provide an example of your own):
 
@@ -114,13 +119,13 @@ python3 main.py
    2. What statement(s) does it execute (consider the `super` call), and what is the result?
 
    > Your answer here
-   >
+   > **************************************************
 
 ### 2.3. Code style
 
 1. What code style is used in the code? Is it likely to be the same as the code style used in the SenseHat? Give to reasons as to why/why not:
 
-> the code style used in the code is PEP 8
+> The code style used in the code is PEP 8. Yes, ************************************
 >
 
 2. List three aspects of this convention you see applied in the code.
@@ -141,18 +146,13 @@ python3 main.py
   
   Use the following table for your answers:
 
-| Class Name   | Super or Sub? | Direct parent(s) |
-|--------------|---------------|------------------|
-| NotReal      | Sub           | NotRealParent    |
-| Smiley       | Super         | N/A              |
-| dim_display  | Sub           | Smiley           |
-| Happy        | Super         | N/A              |
-| draw_mouth   | Sub           | Happy            |
-| draw_eyes    | Sub           | Happy            |
-| blink        | Sub           | Happy            |
-| Sad          | Super         | N/A              |
-| draw_mouth   | Sub           | Sad              |
-| Blinkable    | Super         | N/A              |
+| Class Name | Super or Sub? | Direct parent(s)  |
+|------------|---------------|-------------------|
+| Smiley     | Super         | N/A               |
+| Happy      | Sub           | Smiley, Blinkable |
+| Sad        | Sub           | Smiley            |
+| Blinkable  | Super         | N/A               |
+|            |               |                   |
 
 
 
@@ -171,16 +171,16 @@ python3 main.py
 Compare and contrast the classes Happy and Sad.
 
 1. What is the key difference between the two classes?
-   > Happy is importing blinkable and override a method.
+   > Happy inherent from Blinkable vs sad did not import Blinkable 
    >
 2. What are the key similarities?
-   > tey both have mouth and eyes
+   > tey both have mouth and eyes functionality
    >
 3. What difference stands out the most to you and why?
-   > Using 2 different method for draw_eyes and having blinking functionality
+   > Happy has blink function and sad dose not
    >
 4. How does this difference affect the functionality of these classes
-   > ???????????????????????????????????????????
+   > The difference made the Happy class to blink vs sad dose not have this function
    >
 
 ### 2.6. Where is the Sense(Hat) in the code?
@@ -192,7 +192,7 @@ Compare and contrast the classes Happy and Sad.
    > Smiley
    >
 3. Discuss the hiding of the SenseHAT in terms of encapsulation (100-200 Words)
-   > it use the smily data to translate the datat to RaspberryPi display
+   > it uses the smily data to translate the datat to RaspberryPi display
    >
 
 ### 2.7. Sad Smileys Can’t Blink (Or Can They?)
@@ -203,30 +203,43 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
 
 1. Does the code's author believe that every `Smiley` should be able to blink? Explain.
 
-> No, the blink may or may not be used as it is not part of the class
+> Yes, the smily main call blink function smiley.blink() from classes. Should Smiley = sad it will require blink attribute
 >
 
 2. For those smileys that blink, does the author expect them to blink in the same way? Explain.
 
-> Yes, the blink function changes the eyes pixel once wit in 0.25 second
+> No, the blink function could be set by programmer. as an example can set sad to blink 3 tome with longer time between each blink.
 >
 
 3. Referring to the implementation of blink in the Happy and Sad Smiley classes, give a brief explanation of what polymorphism is.
 
-> Your answer here
+> These classes have a simular structure. They are using Smiley as a superclass and iterate through a common variable name pixel.
+> 
+> https://www.programiz.com/python-programming/polymorphism
 >
 
 4. How is inheritance used in the blink method, and why is it important for polymorphism?
 
-> Your answer here
->
+> ******** need to find Inheritance
+> 
+> 
+
 1. **Implement Blink in Sad Class:**
 
    - Create a new method called `blink` within the Sad class. Ensure you use the same method signature as in the Happy class:
 
    ```python
    def blink(self, delay=0.25):
-       pass  # Replace 'pass' with your implementation
+       """
+        Blinks the smiley's eyes once
+
+        :param delay: Delay between blinks (in seconds)
+        """
+        self.draw_eyes(wide_open=False)
+        self.show()
+        time.sleep(delay)
+        self.draw_eyes(wide_open=True)
+        self.show()
    ```
 
 2. **Code Implementation:** Implement the code that allows the Sad smiley to blink. Use the implementation from the Happy Smiley as a reference. Ensure your new method functions similarly by controlling the blink duration through the `delay` argument.
@@ -237,11 +250,11 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
 
 Include a screenshot of the sad smiley or the modified `main.py`:
 
-![Sad Smiley Blinking](screenshots/sad_blinking.png)
+![Implement_Blink_in_Sad_Class.png](screenshots%2FImplement_Blink_in_Sad_Class.png)
 
 - Observe and document the Sad smiley as it blinks its eyes. Describe any adjustments or issues encountered during implementation.
 
-  > Your answer here
+  > i have imported sad and changed pass Sad to smily
 
   ### 2.8. If It Walks Like a Duck…
 
@@ -250,6 +263,7 @@ Include a screenshot of the sad smiley or the modified `main.py`:
   1. **Class Type Analysis:** What kind of class is `Blinkable`? Inspect its superclass for clues about its classification.
 
      > Your answer here
+> https://docs.python.org/3.12/library/abc.html#abc.abstractmethod
 
   2. **Class Implementation:** `Blinkable` is a class intended to be implemented by other classes. What generic term describes this kind of class, which is designed for implementation by others? **Clue**: Notice the lack of any concrete implementation and the naming convention.
 
@@ -278,19 +292,19 @@ Include a screenshot of the sad smiley or the modified `main.py`:
   1. **Defined Colors and Their Location:**
 
      1. Which colors are defined and in which class(s)?
-        > Your answer here
+        > the colors are: WHITE, GREEN, RED, YELLOW and Black (BLANK). and they are in Smiley
      2. What type of variables hold these colors? Are the values expected to change during the program's execution? Explain your answer.
-        > Your answer here
+        > the variable is list of Tuples and the values are not ment to be changed.
      3. Add the color blue to the appropriate class using the appropriate format and values.
 
   2. **Usage of Color Variables:**
 
      1. In which classes are the color variables used?
-        > Your answer here
+        > Smily
 
   3. **Simple Method to Change Colors:**
   4. What is the easiest way you can think to change the smileys to green? Easiest, not necessarily the best!
-     > Your answer here
+     > Changing the dolor described pixel (Y and O) to background and face and pass the coolers to background and face
 
   Here's a revised version of the "Flexible Colors – Step 1" section for the smiley project, incorporating your specifications for formatting and content updates:
 
