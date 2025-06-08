@@ -90,11 +90,13 @@ https://learnlearn.uk/alevelcs/user-defined-types/
 
 3. Examine the code for `smiley.py`, `sad.py`, and `happy.py`. Give an example of each of the following control structures using an example from **each** of these files. Include the first line and the line range:
 
-   | Control Flow | File   | First line               | Line range |
-   |--------------|--------|--------------------------|------------|
-   | sequence     | Smiley | WHITE = (255, 255, 255)  | 5 to 26    |
-   | selection    | _      | _                        | _          |
-   | iteration    | _      | _                        | _          |
+   | Control Flow | File   | First line              | Line range |
+   |--------------|--------|-------------------------|------------|
+   | sequence     | Smiley | WHITE = (255, 255, 255) | 5 to 26    |
+   | selection    | Sad    | if wide_open:           | 28 to 31   |
+   | iteration    | happy  | for pixel in mouth:     | 20 to 22   |
+
+https://learnprogramming.academy/programming/sequence-selection-and-iteration-the-building-blocks-of-programming-languages/
 
 4. Though everything in Python is an object, it is sometimes said to have four "primitive" types. Examining the three files `smiley.py`, `sad.py`, and `happy.py`, identify which of the following types are used in any of these files, and give an example of each (use an example from the code, if applicable, otherwise provide an example of your own):
 
@@ -107,7 +109,7 @@ https://learnlearn.uk/alevelcs/user-defined-types/
 
 5. Examining `smiley.py`, provide an example of a class variable and an instance variable (attribute). Explain **why** one is defined as a class variable and the other as an instance variable.
 
-> "YELLOW = (255, 255, 0)" is a class variable and "Y = self.YELLOW". The instance variable allow the user to use a different class variable in a deferment situation
+> "YELLOW = (255, 255, 0)" is a class variable and "Y = self. YELLOW". The instance variable allow the user to use a different class variable in a deferment situation
 >
 
 6. Examine `happy.py`, and identify the constructor (initializer) for the `Happy` class:
@@ -118,24 +120,28 @@ https://learnlearn.uk/alevelcs/user-defined-types/
 
    2. What statement(s) does it execute (consider the `super` call), and what is the result?
 
-   > Your answer here
-   > **************************************************
+   > First it will initialise the parents which are smily and blinkable by using super call. This would create the smily pixels
+   > Then it will run the draw_mouth which set the blank pixels for month 
+   > Then will run draw_eyes which set the eyes pixels
 
 ### 2.3. Code style
 
 1. What code style is used in the code? Is it likely to be the same as the code style used in the SenseHat? Give to reasons as to why/why not:
 
-> The code style used in the code is PEP 8. Yes, ************************************
+> The code style used in the code is PEP 8. Yes, PEP 8 is universal code righting standard for python. 
 >
 
 2. List three aspects of this convention you see applied in the code.
 
-> Use of 4 spaces, use of 2 blank line separating functions and using _ in variables naming
+> Use of 4 spaces, 
+> use of 2 blank line separating functions
+> using _ in variables naming as an example in SenseHat snake case were used as an example "run_hat_gui" 
+> """ """ where used for comment
 >
 
 3. Give two examples of organizational documentation in the code.
 
-> Using comments # and """ """
+> Using comments # and docstring """ """
 >
 
 ### 2.4. Identifying and understanding classes
@@ -158,12 +164,13 @@ https://learnlearn.uk/alevelcs/user-defined-types/
 
 2. Explain the concept of abstraction, giving an example from the project (note "implementing an ABC" is **not** in itself an example of abstraction). (Max 150 words)
 
->  Object-Oriented Classes are Abstraction. tey are the attributes that are relevant for the domain. As an example Happy and attributes are mouth, eyes blink.
+>  Abstraction is for hiding complex coding details and showing only what is needed and without need of knowing the underlying mechanic.
+> https://www.mygreatlearning.com/blog/abstraction-in-python/
 >
 
 3. What is the name of the process of deriving from base classes? What is its purpose in this project? (Max 150 words)
 
-> Inheritance, the purpose is to change a face from smily to deferment mode. such as Sad,  
+> Inheritance, the purpose is to inherit the main common pixels and change what needed to reduce duplication such as draw_mouth and draw_eyes
 >
 
 ### 2.5. Compare and contrast classes
@@ -180,7 +187,7 @@ Compare and contrast the classes Happy and Sad.
    > Happy has blink function and sad dose not
    >
 4. How does this difference affect the functionality of these classes
-   > The difference made the Happy class to blink vs sad dose not have this function
+   > The difference made the Happy class to blink vs sad does not have this function
    >
 
 ### 2.6. Where is the Sense(Hat) in the code?
@@ -220,9 +227,8 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
 
 4. How is inheritance used in the blink method, and why is it important for polymorphism?
 
-> ******** need to find Inheritance
-> 
-> 
+> in blink inherit the full face from smily which is the parent class and change the eye pixel only to open and close.
+> it will allow deferment clasess to work differently. as an example smily will bling hoever the sad do not
 
 1. **Implement Blink in Sad Class:**
 
@@ -230,7 +236,7 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
 
    ```python
    def blink(self, delay=0.25):
-       """
+        """
         Blinks the smiley's eyes once
 
         :param delay: Delay between blinks (in seconds)
@@ -254,7 +260,7 @@ Include a screenshot of the sad smiley or the modified `main.py`:
 
 - Observe and document the Sad smiley as it blinks its eyes. Describe any adjustments or issues encountered during implementation.
 
-  > i have imported sad and changed pass Sad to smily
+  > I have imported sad and changed pass Sad to smily
 
   ### 2.8. If It Walks Like a Duck…
 
@@ -262,24 +268,28 @@ Include a screenshot of the sad smiley or the modified `main.py`:
 
   1. **Class Type Analysis:** What kind of class is `Blinkable`? Inspect its superclass for clues about its classification.
 
-     > Your answer here
+  > Abstract Base Classes
 > https://docs.python.org/3.12/library/abc.html#abc.abstractmethod
+> https://www.geeksforgeeks.org/abstract-classes-in-python/
 
   2. **Class Implementation:** `Blinkable` is a class intended to be implemented by other classes. What generic term describes this kind of class, which is designed for implementation by others? **Clue**: Notice the lack of any concrete implementation and the naming convention.
 
-  > Your answer here
+  > yes, interface
 
   3. **OO Principle Identification:** Regarding your answer to question (2), which Object-Oriented (OO) principle does this represent? Choose from the following and justify your answer in 1-2 sentences: Abstraction, Polymorphism, Inheritance, Encapsulation.
 
-  > Your answer here
+  > Abstraction, the interface shows what it needs to be done and how the class should perform without performing them.
+  > https://www.youtube.com/watch?v=kaZceE16m5A&ab_channel=k0nze
 
   4. **Implementation Flexibility:** Explain why you could grant the Sad Smiley a blinking feature similar to the Happy Smiley's implementation, even without directly using `Blinkable`.
 
-  > Your answer here
+  > Blinkable is not require to inherit fron it. As the blink is method it can be used in any class.
 
   5. **Concept and Language Specificity:** In relation to your response to question (4), what is this capability known as, and why is it feasible in Python and many other dynamically typed languages but not in most statically typed programming languages like C#? **Clue** This concept is hinted at in the title of this section.
 
-  > Your answer here
+  > It describes as duck typing. it makes it feasible to pass a behavior just by implementing a method.
+  > In python the interpreter loads all the code but does not check them, and it only checks them if the code is executing vs c# check the tips all the time. 
+  > https://www.youtube.com/watch?v=kaZceE16m5A&ab_channel=k0nze
 
   ***
 
