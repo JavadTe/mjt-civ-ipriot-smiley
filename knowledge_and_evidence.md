@@ -76,9 +76,11 @@ python3 main.py
    | built-in composite type | list of tuple   | (255, 255, 255) |
    | user-defined type       | self.sense_hat  | SenseHat()      |
 
-https://www.geeksforgeeks.org/primitive-data-types-vs-non-primitive-data-types-in-python/
-https://www.geeksforgeeks.org/composite-method-python-design-patterns/
-https://learnlearn.uk/alevelcs/user-defined-types/
+> GeeksforGeeks. (2024, August). Primitive Data Types vs Non Primitive Data Types in Python. GeeksforGeeks; GeeksforGeeks. https://www.geeksforgeeks.org/primitive-data-types-vs-non-primitive-data-types-in-python/
+
+> Composite Method - Python Design Patterns. (2020, February 9). GeeksforGeeks. https://www.geeksforgeeks.org/composite-method-python-design-patterns/
+
+> Composite Method - Python Design Patterns. (2020, February 9). GeeksforGeeks. https://www.geeksforgeeks.org/composite-method-python-design-patterns/
 
 2. Fill in (`_`) the following table based on the code in `smiley.py`:
 
@@ -96,7 +98,7 @@ https://learnlearn.uk/alevelcs/user-defined-types/
    | selection    | Sad    | if wide_open:           | 28 to 31   |
    | iteration    | happy  | for pixel in mouth:     | 20 to 22   |
 
-https://learnprogramming.academy/programming/sequence-selection-and-iteration-the-building-blocks-of-programming-languages/
+> Mitropoulos, F. J. (2018, August 31). Sequence, Selection, and Iteration - The Building Blocks of Programming Languages • The Learn Programming Academy. The Learn Programming Academy. https://learnprogramming.academy/programming/sequence-selection-and-iteration-the-building-blocks-of-programming-languages/
 
 4. Though everything in Python is an object, it is sometimes said to have four "primitive" types. Examining the three files `smiley.py`, `sad.py`, and `happy.py`, identify which of the following types are used in any of these files, and give an example of each (use an example from the code, if applicable, otherwise provide an example of your own):
 
@@ -165,13 +167,14 @@ https://learnprogramming.academy/programming/sequence-selection-and-iteration-th
 2. Explain the concept of abstraction, giving an example from the project (note "implementing an ABC" is **not** in itself an example of abstraction). (Max 150 words)
 
 >  Abstraction is for hiding complex coding details and showing only what is needed and without need of knowing the underlying mechanic.
-> https://www.mygreatlearning.com/blog/abstraction-in-python/
->
+
+> Team, G. L. (2021b, May 13). Abstraction in Python. Great Learning Blog: Free Resources What Matters to Shape Your Career! https://www.mygreatlearning.com/blog/abstraction-in-python/
+
 
 3. What is the name of the process of deriving from base classes? What is its purpose in this project? (Max 150 words)
 
 > Inheritance, the purpose is to inherit the main common pixels and change what needed to reduce duplication such as draw_mouth and draw_eyes
->
+
 
 ### 2.5. Compare and contrast classes
 
@@ -222,7 +225,7 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
 
 > These classes have a simular structure. They are using Smiley as a superclass and iterate through a common variable name pixel.
 > 
-> https://www.programiz.com/python-programming/polymorphism
+> Polymorphism in Python(with Examples). (n.d.). Www.programiz.com. https://www.programiz.com/python-programming/polymorphism
 >
 
 4. How is inheritance used in the blink method, and why is it important for polymorphism?
@@ -269,8 +272,10 @@ Include a screenshot of the sad smiley or the modified `main.py`:
   1. **Class Type Analysis:** What kind of class is `Blinkable`? Inspect its superclass for clues about its classification.
 
   > Abstract Base Classes
-> https://docs.python.org/3.12/library/abc.html#abc.abstractmethod
-> https://www.geeksforgeeks.org/abstract-classes-in-python/
+
+> abc — Abstract Base Classes. (2025). Python Documentation. https://docs.python.org/3.12/library/abc.html#abc.abstractmethod
+
+> Abstract Classes in Python. (2019, January 10). GeeksforGeeks. https://www.geeksforgeeks.org/abstract-classes-in-python/
 
   2. **Class Implementation:** `Blinkable` is a class intended to be implemented by other classes. What generic term describes this kind of class, which is designed for implementation by others? **Clue**: Notice the lack of any concrete implementation and the naming convention.
 
@@ -279,7 +284,8 @@ Include a screenshot of the sad smiley or the modified `main.py`:
   3. **OO Principle Identification:** Regarding your answer to question (2), which Object-Oriented (OO) principle does this represent? Choose from the following and justify your answer in 1-2 sentences: Abstraction, Polymorphism, Inheritance, Encapsulation.
 
   > Abstraction, the interface shows what it needs to be done and how the class should perform without performing them.
-  > https://www.youtube.com/watch?v=kaZceE16m5A&ab_channel=k0nze
+
+  > k0nze. (2024, February 22). Python Interfaces and Abstract Base Class (ABC): A Must-Know for Advanced Programmers. YouTube. https://www.youtube.com/watch?v=kaZceE16m5A
 
   4. **Implementation Flexibility:** Explain why you could grant the Sad Smiley a blinking feature similar to the Happy Smiley's implementation, even without directly using `Blinkable`.
 
@@ -289,7 +295,8 @@ Include a screenshot of the sad smiley or the modified `main.py`:
 
   > It describes as duck typing. it makes it feasible to pass a behavior just by implementing a method.
   > In python the interpreter loads all the code but does not check them, and it only checks them if the code is executing vs c# check the tips all the time. 
-  > https://www.youtube.com/watch?v=kaZceE16m5A&ab_channel=k0nze
+  
+> k0nze. (2024, February 22). Python Interfaces and Abstract Base Class (ABC): A Must-Know for Advanced Programmers. YouTube. https://www.youtube.com/watch?v=kaZceE16m5A
 
   ***
 
