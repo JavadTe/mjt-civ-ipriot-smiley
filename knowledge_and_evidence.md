@@ -84,11 +84,11 @@ python3 main.py
 
 2. Fill in (`_`) the following table based on the code in `smiley.py`:
 
-   | Object                  | Type  |
-   |-------------------------|-------|
-   | self.pixels             | list  |
-   | A member of self.pixels | tuple |
-   | self                    | class |
+   | Object        | Type  |
+   |---------------|-------|
+   | pixels        | list  |
+   | my_complexion | tuple |
+   | WHITE         | tuple |
 
 3. Examine the code for `smiley.py`, `sad.py`, and `happy.py`. Give an example of each of the following control structures using an example from **each** of these files. Include the first line and the line range:
 
@@ -117,7 +117,7 @@ python3 main.py
 6. Examine `happy.py`, and identify the constructor (initializer) for the `Happy` class:
    1. What is the purpose of a constructor (in general) and this one (in particular)?
 
-   > The constructors are to isinglass the object in the class. in this particular constractor is setting the pixels matrix
+   > The constructors are to initialise the object in the class. in this particular constractor is setting the pixels matrix
    >
 
    2. What statement(s) does it execute (consider the `super` call), and what is the result?
@@ -202,8 +202,9 @@ Compare and contrast the classes Happy and Sad.
    > Smiley
    >
 3. Discuss the hiding of the SenseHAT in terms of encapsulation (100-200 Words)
-   > it uses the smily data to translate the datat to RaspberryPi display
-   >
+   > Encapsulation means hiding the parts of the program we don’t need to see and only showing what is needed. In this project, the SenseHat is created inside the Smiley class using self.sense_hat.
+   > This means other classes like Happy and Sad don’t talk to SenseHat directly. They just use the methods from Smiley, and Smiley handles sending the data to the SenseHat display.
+   > This is good because if one day we change the display from a SenseHat to something else, we only need to update the code in Smiley, and the other classes will still work fine. It keeps the program simple, tidy, and easier to manage.
 
 ### 2.7. Sad Smileys Can’t Blink (Or Can They?)
 
@@ -213,7 +214,8 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
 
 1. Does the code's author believe that every `Smiley` should be able to blink? Explain.
 
-> Yes, the smily main call blink function smiley.blink() from classes. Should Smiley = sad it will require blink attribute
+> I think the author’s idea was that not every smiley needs to blink.
+> The smily main call blink function smiley.blink() from classes. Should Smiley = sad it will require blink attribute
 >
 
 2. For those smileys that blink, does the author expect them to blink in the same way? Explain.
@@ -223,7 +225,10 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
 
 3. Referring to the implementation of blink in the Happy and Sad Smiley classes, give a brief explanation of what polymorphism is.
 
-> These classes have a simular structure. They are using Smiley as a superclass and iterate through a common variable name pixel.
+> Polymorphism means different classes can have the same method name, but each one does something different when that method is called. 
+> In this project, both Happy and (if added) Sad can have a method called blink(), but the way each one works can be different. 
+> When the main program calls smiley.blink(), it doesn’t care if it’s a Happy or Sad smiley — it just runs whatever blink() belongs to that smiley. 
+> This makes the code flexible because we can add new smileys with their own blink style without changing the main program.
 > 
 > Polymorphism in Python(with Examples). (n.d.). Www.programiz.com. https://www.programiz.com/python-programming/polymorphism
 >
