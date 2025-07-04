@@ -82,13 +82,18 @@ python3 main.py
 
 > Composite Method - Python Design Patterns. (2020, February 9). GeeksforGeeks. https://www.geeksforgeeks.org/composite-method-python-design-patterns/
 
-2. Fill in (`_`) the following table based on the code in `smiley.py`:
+ Fill in (`_`) the following table based on the code in `smiley.py`:
 
-   | Object        | Type  |
-   |---------------|-------|
-   | pixels        | list  |
-   | my_complexion | tuple |
-   | WHITE         | tuple |
+   | Object        | Type        |
+   |---------------|-------------|
+   | pixels        | list        |
+   | my_complexion | tuple       |
+   | WHITE         | tuple       |
+   | Self          | happy.Happy |
+ 
+> "self is calling class happy.Happy"
+> ![img_2.png](screenshots/img_2.png)
+> 
 
 3. Examine the code for `smiley.py`, `sad.py`, and `happy.py`. Give an example of each of the following control structures using an example from **each** of these files. Include the first line and the line range:
 
@@ -214,9 +219,9 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
 
 1. Does the code's author believe that every `Smiley` should be able to blink? Explain.
 
-> I think the author’s idea was that not every smiley needs to blink.
-> The smily main call blink function smiley.blink() from classes. Should Smiley = sad it will require blink attribute
->
+> I think the author,s idea was that not every Smiley needs to blink. This is because the Smiley class does not have a blink() method. Only sassess like Happy inherit from both Smily and Blinable which means only some smileys can blink.
+> The author ised an abstract class called Blinkable so that only the smilys that need to blink will have the blink() method. This is called abstraction, because it shows what needs to be done but not how it works. the smileys that can blink will write their own blink() method.
+> If every smiley had to blink the blink() method would be inside the Smily class but it is not. That is why I think the author did not expect smily to blink.
 
 2. For those smileys that blink, does the author expect them to blink in the same way? Explain.
 

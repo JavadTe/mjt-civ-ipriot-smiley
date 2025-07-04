@@ -28,6 +28,8 @@ class Smiley:
             b, X, X, X, X, X, X, b,
         ]
 
+        print(type(self))
+
     def complexion(self):
         """
         Return the complexion (color) of the smiley face.
@@ -46,3 +48,4 @@ class Smiley:
         Show the smiley on the screen.
         """
         self.sense_hat.set_pixels(self.pixels)
+
